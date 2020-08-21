@@ -1,0 +1,34 @@
+version: '2.0'
+services:
+  old_resolver_default:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - PIP_EXTRA=
+        - REQS=default.txt
+    image: pip-resolver-demo-old-default
+  old_resolver_docs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - PIP_EXTRA=
+        - REQS=docs.txt
+    image: pip-resolver-demo-old-docs
+  new_resolver_default:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - PIP_EXTRA=--use-feature=2020-resolver
+        - REQS=default.txt
+    image: pip-resolver-demo-new-default
+  new_resolver_docs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - PIP_EXTRA=--use-feature=2020-resolver
+        - REQS=docs.txt
+    image: pip-resolver-demo-new-docs
