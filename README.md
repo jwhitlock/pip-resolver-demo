@@ -2,7 +2,7 @@
 
 This is a minimized version of https://github.com/mozilla/ichnaea/pull/1289.
 
-With pip 20.2.2, these both work:
+With pip 20.2.2 (released and in development), these both work:
 
 ```
 pip install -r default.txt  # Used in our development environment
