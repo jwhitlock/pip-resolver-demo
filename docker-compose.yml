@@ -32,3 +32,21 @@ services:
         - PIP_EXTRA=--use-feature=2020-resolver
         - REQS=docs.txt
     image: pip-resolver-demo-new-docs
+  dev_resolver_default:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - PIP_EXTRA=--use-feature=2020-resolver
+        - REQS=default.txt
+        - PIP_SOURCE=pip @ https://github.com/pypa/pip/archive/master.zip
+    image: pip-resolver-demo-new-default
+  dev_resolver_docs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - PIP_EXTRA=--use-feature=2020-resolver
+        - REQS=docs.txt
+        - PIP_SOURCE=pip @ https://github.com/pypa/pip/archive/master.zip
+    image: pip-resolver-demo-new-docs

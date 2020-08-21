@@ -2,7 +2,10 @@ FROM python:3.8-slim
 
 ARG PIP_EXTRA=--use-feature=2020-resolver
 ARG REQS=default.txt
-RUN python -m pip install --upgrade pip
+ARG PIP_SOURCE=pip
+
+RUN echo "python -m pip install --upgrade \"${PIP_SOURCE}\""
+RUN python -m pip install --upgrade "${PIP_SOURCE}"
 
 COPY default.txt docs.txt shared.txt constraints.txt ./
 

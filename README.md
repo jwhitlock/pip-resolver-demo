@@ -36,6 +36,8 @@ This was tested in a virtualenv, and in Docker. If you have Docker setup, you ca
 docker-compose build  # All four variants, stops on failure
 docker-compose new_resolver_default  # Just pip install -r default.txt --use-feature=2020-resolver
 docker-compose new_resolver_docs     # Just pip install -r docs.txt --use-feature=2020-resolver
+docker-compose dev_resolver_default  # Install in-development version of pip
+docker-compose dev_resolver_docs     # Install in-development version of pip
 ```
 
 Our requirements files include other files, as a way to only specify a requirement once for two different environments:
