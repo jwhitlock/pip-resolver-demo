@@ -1,8 +1,0 @@
-# Requirements to build documentation on ReadTheDocs.org
-
--c constraints.txt
--r shared.txt
-
-Sphinx==3.1.2 \
-    --hash=sha256:97dbf2e31fc5684bb805104b8ad34434ed70e6c588f6896991b2fdfd2bef8c00 \
-    --hash=sha256:b9daeb9b39aa1ffefc2809b43604109825300300b987a24f45976c001ba1a8fd
