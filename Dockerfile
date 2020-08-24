@@ -9,7 +9,7 @@ RUN python -m pip install --upgrade "${PIP_SOURCE}"
 
 RUN python -m pip freeze
 
-COPY default.txt constraints.txt ./
+COPY *.txt ./
 
 RUN echo "pip install -r ${REQS} ${PIP_EXTRA}"
 RUN pip install -r ${REQS} ${PIP_EXTRA}

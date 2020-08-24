@@ -14,6 +14,13 @@ services:
       args:
         - PIP_EXTRA=--use-feature=2020-resolver
     image: pip-resolver-demo-new-default
+  new_resolver_fixup:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - PIP_EXTRA=--use-feature=2020-resolver -r constraints.txt
+    image: pip-resolver-demo-new-default
   dev_resolver:
     build:
       context: .
@@ -22,3 +29,29 @@ services:
         - PIP_EXTRA=--use-feature=2020-resolver
         - PIP_SOURCE=pip @ https://github.com/pypa/pip/archive/master.zip
     image: pip-resolver-demo-new-default
+  old_resolver_django:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - REQS=django.txt
+        - PIP_EXTRA=--constraint=django-version.txt
+    image: pip-resolver-demo-old-default
+  new_resolver_django:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - REQS=django.txt
+        - PIP_EXTRA=--use-feature=2020-resolver --constraint=django-version.txt
+    image: pip-resolver-demo-new-default
+  dev_resolver_django:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - REQS=django.txt
+        - PIP_EXTRA=--use-feature=2020-resolver --constraint=django-version.txt
+        - PIP_SOURCE=pip @ https://github.com/pypa/pip/archive/master.zip
+    image: pip-resolver-demo-new-default
+
