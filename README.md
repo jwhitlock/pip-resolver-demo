@@ -3,7 +3,7 @@
 This is a minimized version of https://github.com/mozilla/ichnaea/pull/1289.
 It is reported as https://github.com/pypa/pip/issues/8792
 
-With pip 20.2.2 (released and in development), this works:
+With pip 20.2.3 (released and in development), this works:
 
 ```
 pip install -r default.txt
@@ -22,7 +22,7 @@ ERROR: In --require-hashes mode, all requirements must have their versions pinne
 ```
 
 ``chardet`` and other dependencies are specified in ``constraints.txt`` with hashes.
-The 2020 resolver in pip 20.2.2 does not process hashes in a constraints file.
+The 2020 resolver in pip 20.2.3 does not process hashes in a constraints file.
 
 One work around is to load a constraints file like a regular requirements file:
 
@@ -37,10 +37,10 @@ This was tested in a virtualenv, and in Docker. If you have Docker setup, you
 can run the installs with:
 
 ```
-docker-compose build            # All variants, stops on failure
-docker-compose new_resolver     # Just pip install -r default.txt --use-feature=2020-resolver
-docker-compose dev_resolver     # Install in-development version of pip
-docker-compose new_resolver_fixup   # Try the -r constraints.txt work around
+docker-compose build                      # All variants, stops on failure
+docker-compose build new_resolver         # Just pip install -r default.txt --use-feature=2020-resolver
+docker-compose build dev_resolver         # Install in-development version of pip
+docker-compose build new_resolver_fixup   # Try the -r constraints.txt work around
 ```
 
 Our requirements are split between two files:
