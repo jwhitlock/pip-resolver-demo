@@ -1,7 +1,10 @@
 # Demo of issue with 2020 resolver
 
 This is a minimized version of https://github.com/mozilla/ichnaea/pull/1289.
-It was first reported as https://github.com/pypa/pip/issues/8792
+It was first reported as https://github.com/pypa/pip/issues/8792.
+It was marked as fixed in pip 20.2.4, but my case still fails. It is
+reported as https://github.com/pypa/pip/issues/9020, and this example
+simplified to just Django.
 
 With pip 20.2.4 (released and in development), this works:
 
@@ -15,7 +18,7 @@ However, this fails:
 pip install -r requirements.txt --use-feature=2020-resolver
 ```
 
-The error is:
+The error is something list:
 ```
 ERROR: In --require-hashes mode, all requirements must have their versions pinned with ==. These do not:
     pytz from https://files.pythonhosted.org/packages/4f/a4/879454d49688e2fad93e59d7d4efda580b783c745fd2ec2a3adf87b0808d/pytz-2020.1-py2.py3-none-any.whl#sha256=a494d53b6d39c3c6e44c3bec237336e14305e4f29bbf800b599253057fbb79ed (from Django==3.1->-r requirements.txt (line 3))
