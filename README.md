@@ -3,7 +3,7 @@
 This is a minimized version of https://github.com/mozilla/ichnaea/pull/1289.
 It is reported as https://github.com/pypa/pip/issues/8792
 
-With pip 20.2.3 (released and in development), this works:
+With pip 20.2.4 (released and in development), this works:
 
 ```
 pip install -r default.txt
@@ -22,7 +22,7 @@ ERROR: In --require-hashes mode, all requirements must have their versions pinne
 ```
 
 ``chardet`` and other dependencies are specified in ``constraints.txt`` with hashes.
-The 2020 resolver in pip 20.2.3 does not process hashes in a constraints file.
+The 2020 resolver in pip 20.2.4 does not process hashes in a constraints file.
 
 One work around is to load a constraints file like a regular requirements file:
 
